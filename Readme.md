@@ -5,6 +5,14 @@
 
 <p>a github user app for dicoding submission program fundamental android</p>
 
+# DEMO
+<table>
+  
+  <tr>
+    <td><img src="https://github.com/farhanfath/Github-User-App/blob/main/assets/demo.png"></td>
+
+  </tr>
+ </table>
 
 #### Components And Features:
 1. RecyclerView
@@ -29,11 +37,4 @@
 20. Custom Splash Screen following with theme
 
 
-# DEMO
-<table>
-  
-  <tr>
-    <td><img src="https://github.com/farhanfath/Github-User-App/blob/main/assets/demo.png"></td>
 
-  </tr>
- </table>
