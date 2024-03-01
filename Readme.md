@@ -5,7 +5,7 @@
 
 <p>a github user app for dicoding submission program fundamental android</p>
 
-# DEMO
+## DEMO
 <table>
   
   <tr>
