@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">GithubUserApp</string>
+    <string name="title">Github User</string>
+    <string name="search_text">Search Username</string>
+    <string name="searching">Searching</string>
+
+    <string name="settingIC">Setting</string>
+    <string name="favoriteIC">Favorite</string>
+
+    <string name="SettingTitle">Settings</string>
+    <string name="favoriteTitle">Favorite User</string>
+
+    <string name="usernameTv">username</string>
+    <string name="userIv">userImage</string>
+
+    <string name="followerTv">Followers"</string>
+    <string name="followingTv">Following</string>
+
+    <string name="follower_count">%d Followers</string>
+    <string name="following_count">%d Following</string>
+
+    <string name="followTl">Following and Follower</string>
+    <string name="followVp">Following and Follower</string>
+
+
+    <string name="tab_1">Followers</string>
+    <string name="tab_2">Following</string>
+
+    <string name="back">Back</string>
+    <string name="share">Share</string>
+    <string name="showBtn">Show Button</string>
+
+    <string name="settings">Application Settings</string>
+
+    <string name="bioEmpty">Nothing To Introduce</string>
+
+    <string name="dark_mode">Dark Mode</string>
+    <string name="ChangeMode">Change Mode</string>
+</resources>
