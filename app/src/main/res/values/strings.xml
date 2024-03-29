@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GithubUserApp</string>
+    <string name="app_name">Github Information</string>
     <string name="title">Github User</string>
     <string name="search_text">Search Username</string>
     <string name="searching">Searching</string>
@@ -36,4 +36,6 @@
 
     <string name="dark_mode">Dark Mode</string>
     <string name="ChangeMode">Change Mode</string>
+    <string name="userDefault">q</string>
+    <string name="goToLink">Go Github</string>
 </resources>

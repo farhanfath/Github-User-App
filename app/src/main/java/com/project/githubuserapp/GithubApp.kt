@@ -3,8 +3,8 @@ package com.project.githubuserapp
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.asLiveData
-import com.project.githubuserapp.settings.SettingPreferences
-import com.project.githubuserapp.settings.dataStore
+import com.project.githubuserapp.ui.settings.SettingPreferences
+import com.project.githubuserapp.ui.settings.dataStore
 
 class GithubApp : Application() {
 

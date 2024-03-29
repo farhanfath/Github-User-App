@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/main"
     android:layout_height="match_parent"
-    tools:context=".detail.DetailUser"
+    tools:context=".ui.detail.DetailUser"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp"
-    android:fillViewport="true"
-    android:background="@drawable/background_detail">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/Secondary"
             android:clickable="true"
             android:contentDescription="@string/showBtn"
             android:focusable="true"
@@ -30,17 +29,16 @@
             tools:ignore="RedundantDescriptionCheck"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/back_btn"
+            android:id="@+id/fabFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:clickable="true"
             android:focusable="true"
             android:visibility="invisible"
-            android:backgroundTint="@color/Secondary"
             app:layout_constraintBottom_toTopOf="@+id/add_btn"
             app:layout_constraintEnd_toEndOf="@+id/add_btn"
-            app:srcCompat="@drawable/baseline_arrow_back_24"
+            app:srcCompat="@drawable/fav_unfill"
             android:contentDescription="@string/back"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -48,14 +46,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/Secondary"
             android:clickable="true"
             android:focusable="true"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/back_btn"
-            app:layout_constraintEnd_toEndOf="@+id/back_btn"
+            app:layout_constraintBottom_toTopOf="@+id/fabFav"
+            app:layout_constraintEnd_toEndOf="@+id/fabFav"
             app:srcCompat="@drawable/baseline_share_24"
             android:contentDescription="@string/share"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/back"
+            app:srcCompat="@drawable/baseline_arrow_back_24" />
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -73,7 +84,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             tools:text="@string/usernameTv"
-            android:textColor="@color/Accent"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/userCiv"
             app:layout_constraintStart_toStartOf="@+id/userCiv"
@@ -86,7 +96,6 @@
             android:layout_marginTop="2dp"
             android:textSize="14sp"
             tools:text="name"
-            android:textColor="@color/Accent"
             app:layout_constraintEnd_toEndOf="@+id/nameTv"
             app:layout_constraintStart_toStartOf="@+id/nameTv"
             app:layout_constraintTop_toBottomOf="@+id/nameTv" />
@@ -100,7 +109,6 @@
             android:textSize="12sp"
             tools:text="bio"
             android:textAlignment="center"
-            android:textColor="@color/Accent"
             app:layout_constraintEnd_toEndOf="@+id/usernameTv"
             app:layout_constraintStart_toStartOf="@+id/usernameTv"
             app:layout_constraintTop_toBottomOf="@+id/usernameTv" />
@@ -123,7 +131,6 @@
                 android:layout_marginEnd="8dp"
                 android:drawablePadding="6dp"
                 tools:text="@string/followerTv"
-                android:textColor="@color/Accent"
                 android:textSize="14sp"
                 app:drawableStartCompat="@drawable/baseline_people_24" />
 
@@ -135,7 +142,6 @@
                 android:layout_marginTop="16dp"
                 android:drawablePadding="6dp"
                 tools:text="@string/followingTv"
-                android:textColor="@color/Accent"
                 android:textSize="14sp"
                 app:drawableStartCompat="@drawable/baseline_people_24" />
 
@@ -145,12 +151,11 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:tabIndicatorColor="@color/Accent"
-            android:contentDescription="@string/followTl"
-            app:tabTextColor="@color/Accent"/>
+            android:contentDescription="@string/followTl" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
@@ -167,26 +172,12 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/Accent"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/view_pager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.15" />
-
-        <ToggleButton
-            android:id="@+id/favorite_toggle"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/toggle_fav"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:textOff=""
-            android:textOn=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
