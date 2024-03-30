@@ -31,13 +31,14 @@
             android:textSize="16sp"/>
 
         <Button
-            android:id="@+id/linkBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:id="@+id/removeFavBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="16dp"
-            android:clickable="false"
-            android:contentDescription="@string/goToLink"
-            android:background="@drawable/ic_launch"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/removeFav"
+            android:background="@drawable/ic_bookmark_remove"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

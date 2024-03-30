@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.githubuserapp.R
 import com.project.githubuserapp.adapter.FollowAdapter
 import com.project.githubuserapp.databinding.UserfollowFragmentBinding
-import com.project.githubuserapp.ui.detail.DetailUser
-import com.project.githubuserapp.adapter.UserAdapter
+import com.project.githubuserapp.ui.detail.DetailUserActivity
 import com.project.githubuserapp.data.models.User
 
 class FollowersFragment : Fragment(R.layout.userfollow_fragment) {
@@ -28,7 +27,7 @@ class FollowersFragment : Fragment(R.layout.userfollow_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val args = arguments
-        username = args?.getString(DetailUser.EXTRA_USERNAME).toString()
+        username = args?.getString(DetailUserActivity.EXTRA_USERNAME).toString()
 
         _binding = UserfollowFragmentBinding.bind(view)
 

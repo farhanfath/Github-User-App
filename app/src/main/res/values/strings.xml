@@ -38,4 +38,8 @@
     <string name="ChangeMode">Change Mode</string>
     <string name="userDefault">q</string>
     <string name="goToLink">Go Github</string>
+    <string name="searchIC">Search</string>
+    <string name="removeFav">Remove From Favorite</string>
+
+    <string name="removedUserFav">Removed %1$s From Favorite</string>
 </resources>

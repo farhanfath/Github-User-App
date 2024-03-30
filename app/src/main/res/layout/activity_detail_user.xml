@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/main"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailUser"
+    tools:context=".ui.detail.DetailUserActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp"
     android:fillViewport="true">
@@ -38,7 +38,6 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/add_btn"
             app:layout_constraintEnd_toEndOf="@+id/add_btn"
-            app:srcCompat="@drawable/fav_unfill"
             android:contentDescription="@string/back"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

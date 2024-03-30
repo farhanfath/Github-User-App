@@ -1,6 +1,7 @@
 package com.project.githubuserapp.ui.settings
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -46,5 +47,15 @@ class SettingsActivity : AppCompatActivity() {
         switchTheme.setOnCheckedChangeListener {_: CompoundButton?, isChecked: Boolean ->
             mainViewModel.saveThemeSetting(isChecked)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            }
+        }
+        return true
     }
 }

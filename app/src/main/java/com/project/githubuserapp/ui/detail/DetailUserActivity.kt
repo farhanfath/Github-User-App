@@ -1,12 +1,12 @@
 package com.project.githubuserapp.ui.detail
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailUser : AppCompatActivity() {
+class DetailUserActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailUserBinding
     private lateinit var viewModel: DetailUserViewModel
@@ -63,7 +63,7 @@ class DetailUser : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 if (count != null) {
                     isChecked = count > 0
-                    binding.fabFav.setImageResource(if (isChecked) R.drawable.fav_fill else R.drawable.fav_unfill)
+                    binding.fabFav.setImageResource(if (isChecked) R.drawable.ic_bookmark_fill else R.drawable.ic_bookmark_unfill)
                 }
             }
         }
@@ -79,7 +79,7 @@ class DetailUser : AppCompatActivity() {
                 viewModel.removeUserFromFavorite(id)
                 Toast.makeText(this, "Berhasil Dihapus Dari Favorit", Toast.LENGTH_SHORT).show()
             }
-            binding.fabFav.setImageResource(if (isChecked) R.drawable.fav_fill else R.drawable.fav_unfill)
+            binding.fabFav.setImageResource(if (isChecked) R.drawable.ic_bookmark_fill else R.drawable.ic_bookmark_unfill)
         }
 
         val sectionPagerAdapter = SectionPagerAdapter(this, supportFragmentManager, bundle)
@@ -117,7 +117,7 @@ class DetailUser : AppCompatActivity() {
                     followersTv.text = resources.getString(R.string.follower_count, it.followers)
                     followingTv.text = resources.getString(R.string.following_count, it.following)
 
-                    Glide.with(this@DetailUser)
+                    Glide.with(this@DetailUserActivity)
                         .load(it.avatar_url)
                         .into(userCiv)
 

@@ -13,7 +13,7 @@ import com.project.githubuserapp.R
 import com.project.githubuserapp.adapter.FollowAdapter
 import com.project.githubuserapp.data.models.User
 import com.project.githubuserapp.databinding.UserfollowFragmentBinding
-import com.project.githubuserapp.ui.detail.DetailUser
+import com.project.githubuserapp.ui.detail.DetailUserActivity
 
 class FollowingFragment : Fragment(R.layout.userfollow_fragment) {
 
@@ -27,7 +27,7 @@ class FollowingFragment : Fragment(R.layout.userfollow_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val args = arguments
-        username = args?.getString(DetailUser.EXTRA_USERNAME).toString()
+        username = args?.getString(DetailUserActivity.EXTRA_USERNAME).toString()
 
         _binding = UserfollowFragmentBinding.bind(view)
 

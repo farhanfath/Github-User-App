@@ -17,9 +17,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.githubuserapp.R
 import com.project.githubuserapp.adapter.UserAdapter
-import com.project.githubuserapp.databinding.ActivityMainBinding
 import com.project.githubuserapp.data.models.User
-import com.project.githubuserapp.ui.detail.DetailUser
+import com.project.githubuserapp.databinding.ActivityMainBinding
+import com.project.githubuserapp.ui.detail.DetailUserActivity
 import com.project.githubuserapp.ui.favorite.FavoriteUserActivity
 import com.project.githubuserapp.ui.settings.SettingsActivity
 import kotlinx.coroutines.delay
@@ -69,6 +69,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchViewHandler() {
         with(binding) {
+            searchView.setupWithSearchBar(searchBar)
+            searchBarMenuHandler()
+            searchView.editText.setOnEditorActionListener { textView, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    val query = textView.text.toString().trim()
+                    if (query.isNotEmpty()) {
+                        searchUser(query)
+                    }
+                    searchView.hide()
+                    return@setOnEditorActionListener  true
+                }
+                return@setOnEditorActionListener false
+            }
+        }
+    }
+
+    private fun searchBarMenuHandler() {
+        with(binding) {
             searchBar.inflateMenu(R.menu.custom_menu)
             searchBar.setOnMenuItemClickListener { item ->
                 when(item.itemId) {
@@ -95,19 +113,6 @@ class MainActivity : AppCompatActivity() {
                     else -> return@setOnMenuItemClickListener false
                 }
             }
-
-            searchView.setupWithSearchBar(searchBar)
-            searchView.editText.setOnEditorActionListener { textView, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    val query = textView.text.toString().trim()
-                    if (query.isNotEmpty()) {
-                        searchUser(query)
-                    }
-                    searchView.hide()
-                    return@setOnEditorActionListener  true
-                }
-                return@setOnEditorActionListener false
-            }
         }
     }
 
@@ -118,11 +123,11 @@ class MainActivity : AppCompatActivity() {
 
         adapter.setOnItemClickCallBack(object : UserAdapter.OnItemClickCallback {
             override fun onItemClicked(data: User) {
-                Intent(this@MainActivity, DetailUser::class.java).also {
-                    it.putExtra(DetailUser.EXTRA_USERNAME, data.login)
-                    it.putExtra(DetailUser.EXTRA_ID, data.id)
-                    it.putExtra(DetailUser.EXTRA_AVATAR, data.avatar_url)
-                    it.putExtra(DetailUser.EXTRA_URL, data.html_url)
+                Intent(this@MainActivity, DetailUserActivity::class.java).also {
+                    it.putExtra(DetailUserActivity.EXTRA_USERNAME, data.login)
+                    it.putExtra(DetailUserActivity.EXTRA_ID, data.id)
+                    it.putExtra(DetailUserActivity.EXTRA_AVATAR, data.avatar_url)
+                    it.putExtra(DetailUserActivity.EXTRA_URL, data.html_url)
                     startActivity(it)
                 }
             }
