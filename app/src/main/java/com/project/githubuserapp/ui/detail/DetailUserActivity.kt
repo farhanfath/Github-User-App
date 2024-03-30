@@ -1,6 +1,7 @@
 package com.project.githubuserapp.ui.detail
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -105,6 +106,11 @@ class DetailUserActivity : AppCompatActivity() {
                 intent.type = "text/plain"
                 startActivity(Intent.createChooser(intent, "Send To"))
             }
+            userCiv.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(url)
+                startActivity(intent)
+            }
         }
     }
 
@@ -121,7 +127,11 @@ class DetailUserActivity : AppCompatActivity() {
                         .load(it.avatar_url)
                         .into(userCiv)
 
-                    bioTv.text = it.bio
+                    if (it.bio != null) {
+                        bioTv.text = it.bio
+                    } else {
+                        bioTv.setText(R.string.noBio)
+                    }
 
                     progressBar.visibility = View.GONE
                 }

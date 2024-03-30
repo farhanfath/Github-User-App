@@ -42,4 +42,5 @@
     <string name="removeFav">Remove From Favorite</string>
 
     <string name="removedUserFav">Removed %1$s From Favorite</string>
+    <string name="noBio">No Bio</string>
 </resources>
