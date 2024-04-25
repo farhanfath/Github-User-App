@@ -10,8 +10,6 @@ import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-
-
 const val apiKey = BuildConfig.API_KEY
 
 interface api {

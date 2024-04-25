@@ -9,9 +9,9 @@ object RetrofitClient {
     private const val BASE_URL = BuildConfig.BASE_URL
 
     private val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
     val apiInstance: api = retrofit.create(api::class.java)
 }
