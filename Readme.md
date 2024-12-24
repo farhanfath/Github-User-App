@@ -29,11 +29,11 @@
 20. Custom Splash Screen following with theme
 
 
-# DEMO
+## DEMO
 <table>
   
   <tr>
-    <td><img src=""></td>
+    <td><img src="https://github.com/farhanfath/Github-User-App/blob/finalsub/assets/demo.png"></td>
 
   </tr>
  </table>
