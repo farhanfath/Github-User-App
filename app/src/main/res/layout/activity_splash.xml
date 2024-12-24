@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_main"
     tools:context=".SplashActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +31,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="8dp"
             android:indeterminate="true"
-            android:indeterminateTint="@color/Accent"
+            android:progressDrawable="@color/seed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logo_splash"/>
