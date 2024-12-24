@@ -1,3 +1,5 @@
+<img src="assets/Github User App.png">
+
 # Github-User-App
 <hr>
 
@@ -33,7 +35,7 @@
 <table>
   
   <tr>
-    <td><img src=""></td>
+    <td><img src="assets/demo.png"></td>
 
   </tr>
  </table>

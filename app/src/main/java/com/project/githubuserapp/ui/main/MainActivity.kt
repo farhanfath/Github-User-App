@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchViewHandler() {
+        viewModel.setSearchUsers("farhan")
         with(binding) {
             searchView.setupWithSearchBar(searchBar)
             searchBarMenuHandler()
@@ -167,5 +168,6 @@ class MainActivity : AppCompatActivity() {
             }
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
+
     }
 }
