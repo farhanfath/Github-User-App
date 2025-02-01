@@ -1,17 +1,12 @@
-package basic.training.compose
+package basic.training.compose.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import basic.training.compose.ui.theme.GithubAppComposeTheme
+import basic.training.compose.presentation.ui.screens.HomeScreen
+import basic.training.compose.presentation.ui.theme.GithubAppComposeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApp {
-
+                HomeScreen()
             }
         }
     }
@@ -27,7 +22,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
-    GithubAppComposeTheme {
+    GithubAppComposeTheme(dynamicColor = false, darkTheme = false) {
         content()
     }
 }
