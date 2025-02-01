@@ -23,30 +23,39 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import basic.training.compose.presentation.navigation.Detail
 import basic.training.compose.presentation.ui.components.UserItem
 import basic.training.compose.presentation.ui.theme.primaryLight
 import basic.training.compose.presentation.viewmodel.UserViewModel
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import org.koin.androidx.compose.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, FlowPreview::class)
 @Composable
-fun HomeScreen(viewModel: UserViewModel = koinViewModel(), navController: NavController) {
+fun HomeScreen(
+    viewModel: UserViewModel = koinViewModel(),
+    onDetailClick: (username: String, type: String, avatarUrl: String) -> Unit,
+) {
     val users by viewModel.users.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState(initial = false)
 
     var query by remember { mutableStateOf("") }
 
-    LaunchedEffect(query) {
-        if (query.isNotEmpty()) {
-            delay(500L)
-            viewModel.searchUsers(query = query, page = 1, perPage = 20)
-        }
+    LaunchedEffect(Unit) {
+        snapshotFlow { query }
+            .debounce(500L)
+            .distinctUntilChanged()
+            .collectLatest { newQuery ->
+                if (newQuery.isNotEmpty()) {
+                    viewModel.searchUsers(query = newQuery, page = 1, perPage = 20)
+                }
+            }
     }
 
     Scaffold(
@@ -87,7 +96,16 @@ fun HomeScreen(viewModel: UserViewModel = koinViewModel(), navController: NavCon
 
             LazyColumn {
                 items(users) { user ->
-                    UserItem(user = user, onClick = { navController.navigate(Detail(username = user.login)) })
+                    UserItem(
+                        user = user,
+                        onClick = {
+                            onDetailClick(
+                                user.login,
+                                user.type,
+                                user.avatarUrl
+                            )
+                        }
+                    )
                 }
             }
         }

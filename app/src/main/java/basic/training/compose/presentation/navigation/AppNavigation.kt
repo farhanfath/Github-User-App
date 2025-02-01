@@ -9,4 +9,8 @@ data object Home
 data object Profile
 
 @Serializable
-data class Detail(val username: String)
+data class Detail(
+    val username: String,
+    val type: String,
+    val avatarUrl: String
+)

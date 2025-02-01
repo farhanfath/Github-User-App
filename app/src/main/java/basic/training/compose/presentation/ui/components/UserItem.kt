@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import basic.training.compose.domain.model.User
+import basic.training.compose.presentation.ui.theme.inversePrimaryLight
 import basic.training.compose.presentation.ui.theme.onPrimaryContainerLight
 import basic.training.compose.presentation.ui.theme.primaryLight
 
@@ -58,10 +59,17 @@ fun UserItem(
             ) {
                 Text(text = user.login)
                 Spacer(Modifier.height(4.dp))
+
+                val backgroundColor = when(user.type) {
+                    "User" -> onPrimaryContainerLight
+                    "Organization" -> inversePrimaryLight
+                    else -> onPrimaryContainerLight
+                }
+
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(10.dp))
-                        .background(onPrimaryContainerLight)
+                        .background(backgroundColor)
                 ) {
                     Text(
                         modifier = Modifier.padding(vertical = 2.dp, horizontal = 8.dp),
