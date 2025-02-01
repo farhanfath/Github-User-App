@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
-import basic.training.compose.presentation.ui.screens.HomeScreen
+import basic.training.compose.presentation.navigation.NavHostApp
 import basic.training.compose.presentation.ui.theme.GithubAppComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApp {
-                HomeScreen()
+                NavHostApp()
             }
         }
     }
